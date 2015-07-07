@@ -16,6 +16,7 @@
 		C10A71DA1B4AF75700210856 /* College_Profile_BuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A71D91B4AF75700210856 /* College_Profile_BuilderUITests.swift */; };
 		C10A71E81B4AFD1300210856 /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A71E71B4AFD1300210856 /* College.swift */; };
 		C10A71EE1B4B013100210856 /* displayCollegeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A71ED1B4B013100210856 /* displayCollegeViewController.swift */; };
+		C12DFFF61B4C2BB700209735 /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12DFFF51B4C2BB700209735 /* webViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C10A71DB1B4AF75700210856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C10A71E71B4AFD1300210856 /* College.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = College.swift; sourceTree = "<group>"; };
 		C10A71ED1B4B013100210856 /* displayCollegeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCollegeViewController.swift; sourceTree = "<group>"; };
+		C12DFFF51B4C2BB700209735 /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				C10A71B91B4AF75700210856 /* AppDelegate.swift */,
 				C10A71BB1B4AF75700210856 /* ViewController.swift */,
 				C10A71ED1B4B013100210856 /* displayCollegeViewController.swift */,
+				C12DFFF51B4C2BB700209735 /* webViewController.swift */,
 				C10A71BD1B4AF75700210856 /* Main.storyboard */,
 				C10A71C01B4AF75700210856 /* Assets.xcassets */,
 				C10A71C21B4AF75700210856 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12DFFF61B4C2BB700209735 /* webViewController.swift in Sources */,
 				C10A71BC1B4AF75700210856 /* ViewController.swift in Sources */,
 				C10A71EE1B4B013100210856 /* displayCollegeViewController.swift in Sources */,
 				C10A71BA1B4AF75700210856 /* AppDelegate.swift in Sources */,
@@ -491,6 +495,7 @@
 				C10A71E01B4AF75700210856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C10A71E11B4AF75700210856 /* Build configuration list for PBXNativeTarget "College Profile BuilderTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +504,7 @@
 				C10A71E31B4AF75700210856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C10A71E41B4AF75700210856 /* Build configuration list for PBXNativeTarget "College Profile BuilderUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +513,7 @@
 				C10A71E61B4AF75700210856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

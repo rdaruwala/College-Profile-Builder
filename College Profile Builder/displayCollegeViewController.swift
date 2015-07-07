@@ -18,7 +18,9 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var insertPicButton: UIButton!
     @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var urlTextField: UITextField!
     
+    @IBOutlet weak var inputViewBottomConstraint: NSLayoutConstraint!
     
     var collegeList:[String]!
     var colleges:[College]!
@@ -28,6 +30,7 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     var collegeRecieved:College!
     
     var index:Int!
+    var loadButtonBool:Bool!
     
     
     /**
@@ -35,7 +38,7 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     **/
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadButtonBool = true
         
         collegeImage.contentMode = UIViewContentMode.ScaleAspectFit
         
@@ -82,13 +85,34 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
     }
     
     /**
     Moves the screen when keyboard is opened and closed
     **/
+    /*func keyboardWillShow(sender: NSNotification) {
+    if let userInfo = sender.userInfo {
+    if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+    inputViewBottomConstraint.constant = keyboardHeight
+    // scrollViewBottomConstraint.constant = keyboardHeight + 50
+    UIView.animateWithDuration(0.15, animations: { () -> Void in
+    self.view.layoutIfNeeded()
+    })
+    }
+    }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+    inputViewBottomConstraint.constant = 0
+    //scrollViewBottomConstraint.constant = 50
+    UIView.animateWithDuration(0.15, animations: { () -> Void in
+    self.view.layoutIfNeeded()
+    })
+    }*/
+    
+    
     func keyboardWillShow(sender: NSNotification) {
         self.view.frame.origin.y -= 125
     }
@@ -105,8 +129,8 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     If all the fields are filled, check to see if the college is already saved. If it is, then delete it. Then save, and display a notification.
     **/
     @IBAction func saveButtonAction(sender: AnyObject) {
-        if(collegeNameTextField.text != nil && collegeLocationTextField.text != nil && collegeEnrollmentTextField.text != nil && collegeNameTextField.text != "" && collegeLocationTextField.text != "" && collegeEnrollmentTextField.text != "" && collegeImage.image != nil){
-            let toSave:College = College(name: collegeNameTextField.text!, location: collegeLocationTextField.text!, enrollment: Int(collegeEnrollmentTextField.text!)!, image: collegeImage.image!)
+        if(collegeNameTextField.text != nil && collegeLocationTextField.text != nil && collegeEnrollmentTextField.text != nil && collegeNameTextField.text != "" && collegeLocationTextField.text != "" && collegeEnrollmentTextField.text != "" && collegeImage.image != nil && urlTextField.text != "" && urlTextField.text != nil){
+            let toSave:College = College(name: collegeNameTextField.text!, location: collegeLocationTextField.text!, enrollment: Int(collegeEnrollmentTextField.text!)!, image: collegeImage.image!, webURL: urlTextField.text!)
             if (index != -1){
                 colleges.removeAtIndex(index)
             }
@@ -170,13 +194,29 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             collegeNameTextField.text = colleges[index].name
             collegeLocationTextField.text = colleges[index].location
             collegeEnrollmentTextField.text = String(colleges[index].enrollment)
+            urlTextField.text = colleges[index].webURL
         }
     }
     /**
-    Calls the load function if the load button is clicked
+    Calls the load function if the load button is clicked. Once it's clicked, it changes to a 'View URL' button which serves as a segue to the URL
     **/
     @IBAction func loadButtonAction(sender: AnyObject) {
-        loadCollegeView()
+        if(loadButtonBool == true){
+            loadCollegeView()
+            loadButtonBool = false
+            loadButton.setTitle("Visit Website", forState: UIControlState.Normal)
+        }
+        else{
+            self.performSegueWithIdentifier("modalWebView", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "modalWebView"){
+            let next = segue.destinationViewController as? UINavigationController
+            let vc = next?.topViewController as? webViewController
+            vc!.webURL = colleges[index].webURL
+        }
     }
     
 }

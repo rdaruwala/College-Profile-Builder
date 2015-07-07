@@ -78,6 +78,46 @@
             </objects>
             <point key="canvasLocation" x="1252" y="364"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="gde-gE-EEU">
+            <objects>
+                <viewController id="643-ZT-AFA" customClass="webViewController" customModule="College_Profile_Builder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NHr-VT-z0o"/>
+                        <viewControllerLayoutGuide type="bottom" id="G5T-nA-HMV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AeR-kp-6Lh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btf-gj-gbu">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G5T-nA-HMV" firstAttribute="top" secondItem="btf-gj-gbu" secondAttribute="bottom" id="6GC-qW-jD8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="btf-gj-gbu" secondAttribute="trailing" constant="-20" id="GjQ-ha-7xO"/>
+                            <constraint firstItem="btf-gj-gbu" firstAttribute="top" secondItem="NHr-VT-z0o" secondAttribute="bottom" id="Rcj-xC-NeO"/>
+                            <constraint firstItem="btf-gj-gbu" firstAttribute="leading" secondItem="AeR-kp-6Lh" secondAttribute="leadingMargin" constant="-20" id="iz4-rM-9wf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="45o-QR-NaJ">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="SPu-HF-YXp">
+                            <connections>
+                                <action selector="closeWebViewAction:" destination="643-ZT-AFA" id="0vb-2B-G8T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webViewObject" destination="btf-gj-gbu" id="gXp-6z-O65"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Yg-n8-YiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="901"/>
+        </scene>
         <!--Display College View Controller-->
         <scene sceneID="gMc-yM-gFH">
             <objects>
@@ -101,11 +141,13 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p70-2e-iq1">
-                                <rect key="frame" x="20" y="520" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-mf-CQD">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="QHc-4o-Xza"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaQ-ly-grL">
                                 <rect key="frame" x="20" y="434" width="560" height="30"/>
                                 <state key="normal" title="Insert Picture"/>
@@ -131,13 +173,16 @@
                                     <action selector="loadButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="tKG-Pd-J64"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-mf-CQD">
-                                <rect key="frame" x="20" y="72" width="560" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="QHc-4o-Xza"/>
-                                </connections>
-                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College URL (with http://)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvM-gh-wGR">
+                                <rect key="frame" x="20" y="558" width="552" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p70-2e-iq1">
+                                <rect key="frame" x="20" y="520" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -148,7 +193,10 @@
                             <constraint firstAttribute="leadingMargin" secondItem="PPv-M1-JOg" secondAttribute="leading" id="8VB-Ne-fe5"/>
                             <constraint firstItem="p70-2e-iq1" firstAttribute="top" secondItem="PPv-M1-JOg" secondAttribute="bottom" constant="13" id="A2B-Yl-eXo"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ZaQ-ly-grL" secondAttribute="leading" id="AxK-RU-QLN"/>
+                            <constraint firstItem="dvM-gh-wGR" firstAttribute="top" secondItem="p70-2e-iq1" secondAttribute="bottom" constant="8" id="BwA-21-x8x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dvM-gh-wGR" secondAttribute="trailing" constant="8" id="Eq6-LJ-NIM"/>
                             <constraint firstItem="ZaQ-ly-grL" firstAttribute="top" secondItem="FCf-dF-lA5" secondAttribute="bottom" constant="8" id="F4B-ER-N8z"/>
+                            <constraint firstItem="OD7-qa-DpY" firstAttribute="top" secondItem="dvM-gh-wGR" secondAttribute="bottom" constant="12" id="HtE-Hg-dhT"/>
                             <constraint firstAttribute="leadingMargin" secondItem="37e-5b-Nrt" secondAttribute="leading" id="J0y-bi-ADb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RQm-mf-CQD" secondAttribute="leading" id="Nhw-NI-L7A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PPv-M1-JOg" secondAttribute="trailing" id="O36-BD-UhK"/>
@@ -159,8 +207,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="37e-5b-Nrt" secondAttribute="trailing" id="abt-ib-2eM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RQm-mf-CQD" secondAttribute="trailing" id="blW-98-HaH"/>
                             <constraint firstItem="37e-5b-Nrt" firstAttribute="top" secondItem="RQm-mf-CQD" secondAttribute="bottom" constant="4" id="dym-uX-sT3"/>
-                            <constraint firstItem="OD7-qa-DpY" firstAttribute="top" secondItem="p70-2e-iq1" secondAttribute="bottom" constant="50" id="hHj-CD-6yF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FCf-dF-lA5" secondAttribute="trailing" constant="8" id="j9u-Yg-Hha"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dvM-gh-wGR" secondAttribute="leading" id="o6N-kW-0Ze"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RH5-Qw-dxU" secondAttribute="trailing" id="o9Z-Io-yrB"/>
                             <constraint firstItem="FCf-dF-lA5" firstAttribute="centerY" secondItem="BcB-Np-jJ9" secondAttribute="centerY" id="ufx-hQ-dyp"/>
                             <constraint firstItem="PPv-M1-JOg" firstAttribute="top" secondItem="ZaQ-ly-grL" secondAttribute="bottom" constant="13" id="voZ-j4-TUa"/>
@@ -174,9 +222,12 @@
                         <outlet property="collegeImage" destination="FCf-dF-lA5" id="BRB-vU-Y18"/>
                         <outlet property="collegeLocationTextField" destination="PPv-M1-JOg" id="dy2-Th-gtw"/>
                         <outlet property="collegeNameTextField" destination="RH5-Qw-dxU" id="HCy-zT-4Td"/>
+                        <outlet property="inputViewBottomConstraint" destination="HtE-Hg-dhT" id="kmY-UR-ijX"/>
                         <outlet property="insertPicButton" destination="ZaQ-ly-grL" id="OcQ-1d-Z1M"/>
                         <outlet property="loadButton" destination="37e-5b-Nrt" id="lbC-bd-c0W"/>
                         <outlet property="saveButton" destination="RQm-mf-CQD" id="207-Uk-5cg"/>
+                        <outlet property="urlTextField" destination="dvM-gh-wGR" id="att-9q-GdT"/>
+                        <segue destination="WiH-7u-cEj" kind="presentation" identifier="modalWebView" id="lZp-KQ-u8E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynV-X6-AcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,6 +251,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjK-H1-QfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="261" y="-328"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cqn-RR-UUe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WiH-7u-cEj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="llA-Ob-HPV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="643-ZT-AFA" kind="relationship" relationship="rootViewController" id="RiB-lk-jDr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VL-ZE-LQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2043" y="901"/>
         </scene>
     </scenes>
 </document>

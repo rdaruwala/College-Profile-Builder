@@ -15,6 +15,7 @@ class College : NSObject, NSCoding{
     var name:String
     var enrollment:Int
     var location:String
+    var webURL:String
     
     
     
@@ -23,6 +24,7 @@ class College : NSObject, NSCoding{
         self.name = "Default University"
         self.enrollment = 42
         self.location = "Imaginary Land"
+        self.webURL = "http://www.google.com"
     }
     
     init(name: String){
@@ -30,13 +32,15 @@ class College : NSObject, NSCoding{
         self.name = name
         self.enrollment = 42
         self.location = "Imaginary Land"
+        self.webURL = "http://www.google.com"
     }
     
-    init(name: String, location: String, enrollment: Int, image: UIImage){
+    init(name: String, location: String, enrollment: Int, image: UIImage, webURL: String){
         self.name = name
         self.location = location
         self.enrollment = enrollment
         self.image = image
+        self.webURL = webURL
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -44,6 +48,7 @@ class College : NSObject, NSCoding{
         aCoder.encodeObject(location, forKey: "location")
         aCoder.encodeObject(enrollment, forKey: "enrollment")
         aCoder.encodeObject(image, forKey: "image")
+        aCoder.encodeObject(webURL, forKey: "url")
     }
     
     required init?(coder aDecoder: NSCoder){
@@ -51,6 +56,7 @@ class College : NSObject, NSCoding{
         self.location = (aDecoder.decodeObjectForKey("location") as? String)!
         self.enrollment = (aDecoder.decodeObjectForKey("enrollment") as? Int)!
         self.image = aDecoder.decodeObjectForKey("image") as? UIImage
+        self.webURL = (aDecoder.decodeObjectForKey("url") as? String!)!
     }
     
     
