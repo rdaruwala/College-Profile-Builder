@@ -17,6 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var colleges:[College]!
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    /**
+    Runs when the view is loaded. Loads the two arrays (Colleges and their respective names) from NSUserDefaults.
+    **/
     override func viewDidLoad() {
         super.viewDidLoad()
         editButton.tag = 0
@@ -28,7 +31,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             colleges = NSKeyedUnarchiver.unarchiveObjectWithData(tempData) as? [College]
         }
         //colleges = defaults.objectForKey("Colleges") as? [College]
-        
         
         if(collegeList == nil){
             collegeList = []
@@ -43,18 +45,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    /**
+    Returns the size of the array containing college names
+    **/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return collegeList.count
     }
-    
+    /**
+    Sets the table view
+    **/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = collegeList[indexPath.row]
         return cell
         
     }
-    
+    /**
+    Removes a college from the table view list
+    **/
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             let index = isItIn(College(name: collegeList[indexPath.row]))
@@ -66,7 +74,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.reloadData()
         }
     }
-    
+    /**
+    Runs when the + button is tapped. Creates an alert to add a new college to the list
+    **/
     @IBAction func onPlusButtonAction(sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add College", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
@@ -85,7 +95,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    
+    /**
+    Runs when the edit button is tapped. Enables if edit is disabled, and disables if edit is enabled.
+    **/
     @IBAction func editButtonAction(sender: UIBarButtonItem) {
         if(sender.tag == 0){
             tableView.editing = true
@@ -97,20 +109,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    /**
+    Saves the data to NSUserDefaults
+    **/
     func saveData(){
         defaults.setObject(collegeList, forKey: "collegeList")
         let data = NSKeyedArchiver.archivedDataWithRootObject(colleges)
         defaults.setObject(data, forKey: "Colleges")
         defaults.synchronize()
     }
-    
+    /**
+    Sends a college name to the next view controller for displaying/editing
+    **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = segue.destinationViewController as! displayCollegeViewController
         let index = tableView.indexPathForSelectedRow?.row
         destination.collegeRecieved = College(name:collegeList[index!])
         
     }
-    
+    /**
+    Checks if a given college name is contained inside the colleges array
+    **/
     func isItIn(check: College)-> Int{
         for(var i = 0; i < colleges.count; i++){
             if(check.name == colleges[i].name){
