@@ -11,11 +11,13 @@ import UIKit
 class displayCollegeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var collegeImage: UIImageView!
-    @IBOutlet weak var collegeNameTextField: UITextField!
+    
+    @IBOutlet weak var collegeNameTextField: UILabel!
     @IBOutlet weak var collegeLocationTextField: UITextField!
     @IBOutlet weak var collegeEnrollmentTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var insertPicButton: UIButton!
+    @IBOutlet weak var loadButton: UIButton!
     
     
     var collegeList:[String]!
@@ -25,9 +27,13 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     
     var collegeRecieved:College!
     
+    var index:Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        collegeImage.contentMode = UIViewContentMode.ScaleAspectFit
         
         imagePicker.delegate = self
         
@@ -56,14 +62,17 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
         insertPicButton.layer.borderWidth = 3
         insertPicButton.layer.borderColor = UIColor.blueColor().CGColor
         
+        loadButton.backgroundColor = UIColor.clearColor()
+        loadButton.layer.cornerRadius = 10
+        loadButton.layer.borderWidth = 3
+        loadButton.layer.borderColor = UIColor.blueColor().CGColor
+        
         collegeNameTextField.text = collegeRecieved.name
         
-        let index = isItIn(collegeRecieved)
-        if(index > -1){
-            collegeImage.image = colleges[index].image
-            collegeNameTextField.text = colleges[index].name
-            collegeLocationTextField.text = colleges[index].location
-            collegeEnrollmentTextField.text = String(colleges[index].enrollment)
+        index = isItIn(collegeRecieved)
+        
+        if(index == -1){
+            loadButton.hidden = true
         }
         
         //collegeImage.image = collegeRecieved.image
@@ -138,6 +147,20 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
         }
         return -1
     }
+    
+    func loadCollegeView(){
+        if(index > -1){
+            collegeImage.image = colleges[index].image
+            collegeNameTextField.text = colleges[index].name
+            collegeLocationTextField.text = colleges[index].location
+            collegeEnrollmentTextField.text = String(colleges[index].enrollment)
+        }
+    }
+    
+    @IBAction func loadButtonAction(sender: AnyObject) {
+        loadCollegeView()
+    }
+    
     
     /**
     Moves the screen when keyboard is opened and closed

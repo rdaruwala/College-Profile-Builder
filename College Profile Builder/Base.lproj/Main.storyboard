@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="myCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-x2-5OK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-x2-5OK">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -101,23 +101,11 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvx-5C-whR">
-                                <rect key="frame" x="20" y="135" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p70-2e-iq1">
                                 <rect key="frame" x="20" y="520" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-mf-CQD">
-                                <rect key="frame" x="20" y="87" width="560" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="QHc-4o-Xza"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaQ-ly-grL">
                                 <rect key="frame" x="20" y="434" width="560" height="30"/>
                                 <state key="normal" title="Insert Picture"/>
@@ -130,27 +118,50 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH5-Qw-dxU">
+                                <rect key="frame" x="20" y="144" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37e-5b-Nrt">
+                                <rect key="frame" x="20" y="106" width="560" height="30"/>
+                                <state key="normal" title="Load"/>
+                                <connections>
+                                    <action selector="loadButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="tKG-Pd-J64"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-mf-CQD">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="QHc-4o-Xza"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="RH5-Qw-dxU" firstAttribute="top" secondItem="37e-5b-Nrt" secondAttribute="bottom" constant="8" id="0Jg-Pg-ySq"/>
+                            <constraint firstItem="RQm-mf-CQD" firstAttribute="top" secondItem="t8l-jV-hzm" secondAttribute="bottom" constant="8" id="4Q9-N2-yRc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="p70-2e-iq1" secondAttribute="leading" id="6mr-4e-b8p"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="RH5-Qw-dxU" secondAttribute="leading" id="7Fd-SI-dLY"/>
                             <constraint firstAttribute="leadingMargin" secondItem="PPv-M1-JOg" secondAttribute="leading" id="8VB-Ne-fe5"/>
                             <constraint firstItem="p70-2e-iq1" firstAttribute="top" secondItem="PPv-M1-JOg" secondAttribute="bottom" constant="13" id="A2B-Yl-eXo"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ZaQ-ly-grL" secondAttribute="leading" id="AxK-RU-QLN"/>
                             <constraint firstItem="ZaQ-ly-grL" firstAttribute="top" secondItem="FCf-dF-lA5" secondAttribute="bottom" constant="8" id="F4B-ER-N8z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fvx-5C-whR" secondAttribute="trailing" id="Her-ia-eyf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="37e-5b-Nrt" secondAttribute="leading" id="J0y-bi-ADb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RQm-mf-CQD" secondAttribute="leading" id="Nhw-NI-L7A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PPv-M1-JOg" secondAttribute="trailing" id="O36-BD-UhK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p70-2e-iq1" secondAttribute="trailing" id="Tps-XD-mEA"/>
+                            <constraint firstItem="FCf-dF-lA5" firstAttribute="top" secondItem="RH5-Qw-dxU" secondAttribute="bottom" constant="8" id="UZP-8G-Iqt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZaQ-ly-grL" secondAttribute="trailing" id="YWG-Lc-ePa"/>
                             <constraint firstItem="FCf-dF-lA5" firstAttribute="leading" secondItem="BcB-Np-jJ9" secondAttribute="leadingMargin" priority="8" constant="110" id="aMc-fl-fgA"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="fvx-5C-whR" secondAttribute="leading" id="bde-fS-57C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="37e-5b-Nrt" secondAttribute="trailing" id="abt-ib-2eM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RQm-mf-CQD" secondAttribute="trailing" id="blW-98-HaH"/>
-                            <constraint firstItem="fvx-5C-whR" firstAttribute="top" secondItem="RQm-mf-CQD" secondAttribute="bottom" constant="18" id="dNI-8T-uvg"/>
-                            <constraint firstItem="FCf-dF-lA5" firstAttribute="top" secondItem="fvx-5C-whR" secondAttribute="bottom" constant="8" id="dhi-dU-LGt"/>
-                            <constraint firstItem="RQm-mf-CQD" firstAttribute="top" secondItem="t8l-jV-hzm" secondAttribute="bottom" constant="23" id="grP-aI-8Bb"/>
+                            <constraint firstItem="37e-5b-Nrt" firstAttribute="top" secondItem="RQm-mf-CQD" secondAttribute="bottom" constant="4" id="dym-uX-sT3"/>
                             <constraint firstItem="OD7-qa-DpY" firstAttribute="top" secondItem="p70-2e-iq1" secondAttribute="bottom" constant="50" id="hHj-CD-6yF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FCf-dF-lA5" secondAttribute="trailing" constant="8" id="j9u-Yg-Hha"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RH5-Qw-dxU" secondAttribute="trailing" id="o9Z-Io-yrB"/>
                             <constraint firstItem="FCf-dF-lA5" firstAttribute="centerY" secondItem="BcB-Np-jJ9" secondAttribute="centerY" id="ufx-hQ-dyp"/>
                             <constraint firstItem="PPv-M1-JOg" firstAttribute="top" secondItem="ZaQ-ly-grL" secondAttribute="bottom" constant="13" id="voZ-j4-TUa"/>
                             <constraint firstItem="FCf-dF-lA5" firstAttribute="centerX" secondItem="BcB-Np-jJ9" secondAttribute="centerX" id="xML-4C-Ygs"/>
@@ -162,8 +173,9 @@
                         <outlet property="collegeEnrollmentTextField" destination="p70-2e-iq1" id="gJ1-ub-K0B"/>
                         <outlet property="collegeImage" destination="FCf-dF-lA5" id="BRB-vU-Y18"/>
                         <outlet property="collegeLocationTextField" destination="PPv-M1-JOg" id="dy2-Th-gtw"/>
-                        <outlet property="collegeNameTextField" destination="fvx-5C-whR" id="Ce9-vI-5v9"/>
+                        <outlet property="collegeNameTextField" destination="RH5-Qw-dxU" id="HCy-zT-4Td"/>
                         <outlet property="insertPicButton" destination="ZaQ-ly-grL" id="OcQ-1d-Z1M"/>
+                        <outlet property="loadButton" destination="37e-5b-Nrt" id="lbC-bd-c0W"/>
                         <outlet property="saveButton" destination="RQm-mf-CQD" id="207-Uk-5cg"/>
                     </connections>
                 </viewController>

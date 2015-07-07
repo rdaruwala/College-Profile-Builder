@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,12 +57,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.Delete){
+            let index = isItIn(College(name: collegeList[indexPath.row]))
             collegeList.removeAtIndex(indexPath.row)
-            //colleges.removeAtIndex(indexPath.row)
-            
-            defaults.setObject(collegeList, forKey: "collegeList")
-            defaults.setObject(colleges, forKey: "Colleges")
-            defaults.synchronize()
+            if(index > -1){
+                colleges.removeAtIndex(indexPath.row)
+            }
+            saveData()
             tableView.reloadData()
         }
     }
@@ -85,7 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-
+    
     @IBAction func editButtonAction(sender: UIBarButtonItem) {
         if(sender.tag == 0){
             tableView.editing = true
@@ -110,6 +110,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         destination.collegeRecieved = College(name:collegeList[index!])
         
     }
-
+    
+    func isItIn(check: College)-> Int{
+        for(var i = 0; i < colleges.count; i++){
+            if(check.name == colleges[i].name){
+                return i
+            }
+        }
+        return -1
+    }
+    
 }
 
