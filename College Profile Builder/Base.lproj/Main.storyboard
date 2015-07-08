@@ -232,6 +232,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY3-fo-oTY">
                                 <rect key="frame" x="20" y="365" width="560" height="30"/>
                                 <state key="normal" title="View on Map"/>
+                                <connections>
+                                    <action selector="showOnMapAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="a60-8B-xbI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaQ-ly-grL">
                                 <rect key="frame" x="20" y="333" width="560" height="30"/>

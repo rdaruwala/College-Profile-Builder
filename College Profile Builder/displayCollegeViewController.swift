@@ -148,7 +148,7 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             }
             colleges.append(toSave)
             saveData()
-            
+            viewOnMapButton.hidden = false
             let alert = UIAlertController(title: "Saved", message: "Saved successfully!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -219,6 +219,7 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             loadCollegeView()
             loadButtonBool = false
             loadButton.setTitle("Visit Website", forState: UIControlState.Normal)
+            viewOnMapButton.hidden = false
         }
         else{
             self.performSegueWithIdentifier("modalWebView", sender: self)
@@ -232,10 +233,17 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             vc!.webURL = colleges[index].webURL
         }
         else if(segue.identifier == "mapViewSegue"){
-            let next = segue.destinationViewController as? UINavigationController
-            let vc = next?.topViewController as? mapViewController
-            vc!.collegeRecieved = colleges[index]
+            //let next = segue.destinationViewController as? UINavigationController
+            //let vc = next?.topViewController as? mapViewController
+            
+            let vc = segue.destinationViewController as! mapViewController
+            vc.collegeRecieved = colleges[index]
         }
     }
+    
+    @IBAction func showOnMapAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("mapViewSegue", sender: self)
+    }
+    
     
 }

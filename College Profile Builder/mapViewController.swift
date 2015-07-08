@@ -19,13 +19,15 @@ class mapViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let center = CLLocationCoordinate2DMake(41.8938, -87.6354)
+        
+        
+        let center = CLLocationCoordinate2DMake(collegeRecieved.latitude, collegeRecieved.longitude)
         let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegionMake(center, span)
         
         let pin = MKPointAnnotation()
         pin.coordinate = center
-        pin.title = "Mobile Makers"
+        pin.title = collegeRecieved.name
         mapViewObject.addAnnotation(pin)
         mapViewObject.setRegion(region, animated: true)
     }
