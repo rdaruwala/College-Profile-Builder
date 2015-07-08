@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SNF-yU-fPe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -173,69 +172,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FCf-dF-lA5">
-                                <rect key="frame" x="29" y="173" width="543" height="152"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FCf-dF-lA5" secondAttribute="height" multiplier="31:23" id="bZe-Cw-WS1"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bZe-Cw-WS1"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-mf-CQD">
-                                <rect key="frame" x="20" y="72" width="560" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="QHc-4o-Xza"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-M1-JOg">
-                                <rect key="frame" x="20" y="477" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH5-Qw-dxU">
-                                <rect key="frame" x="20" y="144" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37e-5b-Nrt">
-                                <rect key="frame" x="20" y="106" width="560" height="30"/>
-                                <state key="normal" title="Load"/>
-                                <connections>
-                                    <action selector="loadButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="tKG-Pd-J64"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College URL (with http://)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvM-gh-wGR">
-                                <rect key="frame" x="20" y="558" width="552" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p70-2e-iq1">
-                                <rect key="frame" x="20" y="520" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-ap-ArE">
-                                <rect key="frame" x="20" y="403" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pno-xu-1BY">
-                                <rect key="frame" x="20" y="439" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY3-fo-oTY">
-                                <rect key="frame" x="20" y="365" width="560" height="30"/>
-                                <state key="normal" title="View on Map"/>
-                                <connections>
-                                    <action selector="showOnMapAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="a60-8B-xbI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaQ-ly-grL">
                                 <rect key="frame" x="20" y="333" width="560" height="30"/>
                                 <state key="normal" title="Insert Picture"/>
@@ -243,10 +179,69 @@
                                     <action selector="pictureTapped:" destination="1qt-Vw-gae" eventType="touchUpInside" id="6d1-6b-i2P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY3-fo-oTY">
+                                <rect key="frame" x="20" y="365" width="560" height="30"/>
+                                <state key="normal" title="View on Map"/>
+                                <connections>
+                                    <action selector="showOnMapAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="a60-8B-xbI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pno-xu-1BY">
+                                <rect key="frame" x="20" y="439" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-ap-ArE">
+                                <rect key="frame" x="20" y="403" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p70-2e-iq1">
+                                <rect key="frame" x="20" y="520" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College URL (with http://)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvM-gh-wGR">
+                                <rect key="frame" x="20" y="558" width="552" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37e-5b-Nrt">
+                                <rect key="frame" x="20" y="106" width="560" height="30"/>
+                                <state key="normal" title="Load"/>
+                                <connections>
+                                    <action selector="loadButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="tKG-Pd-J64"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH5-Qw-dxU">
+                                <rect key="frame" x="20" y="144" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-M1-JOg">
+                                <rect key="frame" x="20" y="477" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-mf-CQD">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="1qt-Vw-gae" eventType="touchUpInside" id="QHc-4o-Xza"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FCf-dF-lA5">
+                                <rect key="frame" x="29" y="173" width="543" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="kb3-JY-imG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RH5-Qw-dxU" firstAttribute="top" secondItem="37e-5b-Nrt" secondAttribute="bottom" constant="8" id="0Jg-Pg-ySq"/>
+                            <constraint firstItem="FCf-dF-lA5" firstAttribute="top" secondItem="t8l-jV-hzm" secondAttribute="bottom" constant="109" id="1zm-ne-abU"/>
                             <constraint firstItem="RQm-mf-CQD" firstAttribute="top" secondItem="t8l-jV-hzm" secondAttribute="bottom" constant="8" id="4Q9-N2-yRc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="p70-2e-iq1" secondAttribute="leading" id="6mr-4e-b8p"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RH5-Qw-dxU" secondAttribute="leading" id="7Fd-SI-dLY"/>
@@ -256,8 +251,10 @@
                             <constraint firstAttribute="leadingMargin" secondItem="ZaQ-ly-grL" secondAttribute="leading" id="AxK-RU-QLN"/>
                             <constraint firstItem="dvM-gh-wGR" firstAttribute="top" secondItem="p70-2e-iq1" secondAttribute="bottom" constant="8" id="BwA-21-x8x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dvM-gh-wGR" secondAttribute="trailing" constant="8" id="Eq6-LJ-NIM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FCf-dF-lA5" secondAttribute="trailing" constant="8" id="Hcu-Ze-9s0"/>
                             <constraint firstItem="OD7-qa-DpY" firstAttribute="top" secondItem="dvM-gh-wGR" secondAttribute="bottom" constant="12" id="HtE-Hg-dhT"/>
                             <constraint firstAttribute="leadingMargin" secondItem="37e-5b-Nrt" secondAttribute="leading" id="J0y-bi-ADb"/>
+                            <constraint firstItem="FCf-dF-lA5" firstAttribute="leading" secondItem="BcB-Np-jJ9" secondAttribute="leadingMargin" constant="9" id="Jhb-Cm-rIL"/>
                             <constraint firstItem="PPv-M1-JOg" firstAttribute="top" secondItem="pno-xu-1BY" secondAttribute="bottom" constant="8" id="L8D-wA-0kW"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RQm-mf-CQD" secondAttribute="leading" id="Nhw-NI-L7A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PPv-M1-JOg" secondAttribute="trailing" id="O36-BD-UhK"/>
@@ -281,6 +278,15 @@
                             <constraint firstItem="ZaQ-ly-grL" firstAttribute="top" secondItem="FCf-dF-lA5" secondAttribute="bottom" constant="8" id="t02-Ev-HyP"/>
                             <constraint firstItem="FCf-dF-lA5" firstAttribute="centerX" secondItem="BcB-Np-jJ9" secondAttribute="centerX" id="xML-4C-Ygs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UZP-8G-Iqt"/>
+                                <exclude reference="aMc-fl-fgA"/>
+                                <exclude reference="j9u-Yg-Hha"/>
+                                <exclude reference="xML-4C-Ygs"/>
+                                <exclude reference="t02-Ev-HyP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>

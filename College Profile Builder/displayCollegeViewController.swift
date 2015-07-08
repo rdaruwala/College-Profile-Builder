@@ -105,27 +105,6 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     /**
     Moves the screen when keyboard is opened and closed
     **/
-    /*func keyboardWillShow(sender: NSNotification) {
-    if let userInfo = sender.userInfo {
-    if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
-    inputViewBottomConstraint.constant = keyboardHeight
-    // scrollViewBottomConstraint.constant = keyboardHeight + 50
-    UIView.animateWithDuration(0.15, animations: { () -> Void in
-    self.view.layoutIfNeeded()
-    })
-    }
-    }
-    }
-    
-    func keyboardWillHide(sender: NSNotification) {
-    inputViewBottomConstraint.constant = 0
-    //scrollViewBottomConstraint.constant = 50
-    UIView.animateWithDuration(0.15, animations: { () -> Void in
-    self.view.layoutIfNeeded()
-    })
-    }*/
-    
-    
     func keyboardWillShow(sender: NSNotification) {
         self.view.frame.origin.y -= 125
     }
