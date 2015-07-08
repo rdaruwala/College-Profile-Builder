@@ -89,9 +89,10 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
         
         index = isItIn(collegeRecieved)
         
+        viewOnMapButton.hidden = true
+        
         if(index == -1){
             loadButton.hidden = true
-            viewOnMapButton.hidden = true
         }
         
         
@@ -209,6 +210,8 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             urlTextField.text = colleges[index].webURL
             latitudeTextField.text = String(colleges[index].latitude)
             longitudeTextField.text = String(colleges[index].longitude)
+            
+            viewOnMapButton.hidden = false
         }
     }
     /**

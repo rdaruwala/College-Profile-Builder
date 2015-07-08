@@ -90,26 +90,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HEm-28-zpi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="606"/>
+                            </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dtu-II-ZNQ">
-                                <rect key="frame" x="20" y="28" width="560" height="30"/>
+                                <rect key="frame" x="20" y="105" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="3Fz-Gt-Ljj" id="LvL-q9-fKJ"/>
                                 </connections>
                             </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HEm-28-zpi">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="606"/>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="Dtu-II-ZNQ" secondAttribute="leading" id="59g-TR-qlL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dtu-II-ZNQ" secondAttribute="trailing" id="LSe-Zw-KwQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HEm-28-zpi" secondAttribute="trailing" constant="-20" id="NRI-u2-d2n"/>
                             <constraint firstItem="HEm-28-zpi" firstAttribute="leading" secondItem="hQm-Wj-zy1" secondAttribute="leadingMargin" constant="-20" id="OzU-2L-DVy"/>
                             <constraint firstItem="HEm-28-zpi" firstAttribute="top" secondItem="hQm-Wj-zy1" secondAttribute="topMargin" constant="-6" id="chd-wA-ATT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Dtu-II-ZNQ" secondAttribute="trailing" id="pFS-n5-jvr"/>
                             <constraint firstItem="oFj-4m-uCs" firstAttribute="top" secondItem="HEm-28-zpi" secondAttribute="bottom" id="xMr-gB-UJy"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Dtu-II-ZNQ" secondAttribute="leading" id="xiE-12-m2M"/>
                         </constraints>
                     </view>
                     <connections>
