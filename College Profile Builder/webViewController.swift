@@ -12,7 +12,10 @@ class webViewController: UIViewController {
     
     @IBOutlet weak var webViewObject: UIWebView!
     var webURL:String!
-
+    
+    /**
+    Creates a modal view to display the college's web page
+    **/
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = NSURL(string: webURL)
@@ -26,6 +29,9 @@ class webViewController: UIViewController {
     }
     
     
+    /**
+    Closes the modal view controller
+    **/
     @IBAction func closeWebViewAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

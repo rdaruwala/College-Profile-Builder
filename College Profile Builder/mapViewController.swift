@@ -15,11 +15,12 @@ class mapViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var mapViewObject: MKMapView!
     @IBOutlet weak var inputTextField: UITextField!
-    
+ 
+    /**
+    Runs when the view is loaded. Displays the map and drops a pin on the college's location
+    **/
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         let center = CLLocationCoordinate2DMake(collegeRecieved.latitude, collegeRecieved.longitude)
         let span = MKCoordinateSpanMake(0.01, 0.01)
@@ -32,6 +33,9 @@ class mapViewController: UIViewController, UITextFieldDelegate {
         mapViewObject.setRegion(region, animated: true)
     }
     
+    /**
+    Helper function to display a pin on the map
+    **/
     func displayMap(center: CLLocationCoordinate2D, span: MKCoordinateSpan, pinTitle: String){
         let region = MKCoordinateRegionMake(center, span)
         let pin = MKPointAnnotation()
@@ -42,6 +46,9 @@ class mapViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    /**
+    Function to drop a pin on a location given in the text field
+    **/
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(inputTextField.text!, completionHandler: {
@@ -62,7 +69,6 @@ class mapViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
