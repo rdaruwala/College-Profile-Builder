@@ -121,14 +121,13 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     If all the fields are filled, check to see if the college is already saved. If it is, then delete it. Then save, and display a notification.
     **/
     @IBAction func saveButtonAction(sender: AnyObject) {
-        if(collegeNameTextField.text != nil && collegeLocationTextField.text != nil && collegeEnrollmentTextField.text != nil && collegeNameTextField.text != "" && collegeLocationTextField.text != "" && collegeEnrollmentTextField.text != "" && collegeImage.image != nil && urlTextField.text != "" && urlTextField.text != nil && latitudeTextField.text != "" && longitudeTextField.text != "" && latitudeTextField.text != nil && longitudeTextField.text != nil){
-            let toSave:College = College(name: collegeNameTextField.text!, location: collegeLocationTextField.text!, enrollment: Int(collegeEnrollmentTextField.text!)!, image: collegeImage.image!, webURL: urlTextField.text!, latitude: Double(latitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!)
+        if(collegeNameTextField.text != nil && collegeLocationTextField.text != nil && collegeEnrollmentTextField.text != nil && collegeNameTextField.text != "" && collegeLocationTextField.text != "" && collegeEnrollmentTextField.text != "" && collegeImage.image != nil && urlTextField.text != "" && urlTextField.text != nil){
+            let toSave:College = College(name: collegeNameTextField.text!, location: collegeLocationTextField.text!, enrollment: Int(collegeEnrollmentTextField.text!)!, image: collegeImage.image!, webURL: urlTextField.text!)
             if (index != -1){
                 colleges.removeAtIndex(index)
             }
             colleges.append(toSave)
             saveData()
-            viewOnMapButton.hidden = false
             let alert = UIAlertController(title: "Saved", message: "Saved successfully!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -187,8 +186,6 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             collegeLocationTextField.text = colleges[index].location
             collegeEnrollmentTextField.text = String(colleges[index].enrollment)
             urlTextField.text = colleges[index].webURL
-            latitudeTextField.text = String(colleges[index].latitude)
-            longitudeTextField.text = String(colleges[index].longitude)
             
             viewOnMapButton.hidden = false
         }

@@ -16,8 +16,6 @@ class College : NSObject, NSCoding{
     var enrollment:Int
     var location:String
     var webURL:String
-    var latitude:Double
-    var longitude:Double
     
     
     
@@ -27,9 +25,6 @@ class College : NSObject, NSCoding{
         self.enrollment = 42
         self.location = "Imaginary Land"
         self.webURL = "http://www.google.com"
-        
-        self.latitude = 41.8938
-        self.longitude = -87.6354
     }
     
     init(name: String){
@@ -38,18 +33,14 @@ class College : NSObject, NSCoding{
         self.enrollment = 42
         self.location = "Imaginary Land"
         self.webURL = "http://www.google.com"
-        self.latitude = 41.8938
-        self.longitude = -87.6354
     }
     
-    init(name: String, location: String, enrollment: Int, image: UIImage, webURL: String, latitude: Double, longitude: Double){
+    init(name: String, location: String, enrollment: Int, image: UIImage, webURL: String){
         self.name = name
         self.location = location
         self.enrollment = enrollment
         self.image = image
         self.webURL = webURL
-        self.latitude = latitude
-        self.longitude = longitude
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -58,8 +49,6 @@ class College : NSObject, NSCoding{
         aCoder.encodeObject(enrollment, forKey: "enrollment")
         aCoder.encodeObject(image, forKey: "image")
         aCoder.encodeObject(webURL, forKey: "url")
-        aCoder.encodeObject(latitude, forKey: "latitude")
-        aCoder.encodeObject(longitude, forKey: "longitude")
     }
     
     required init?(coder aDecoder: NSCoder){
@@ -68,8 +57,6 @@ class College : NSObject, NSCoding{
         self.enrollment = (aDecoder.decodeObjectForKey("enrollment") as? Int)!
         self.image = aDecoder.decodeObjectForKey("image") as? UIImage
         self.webURL = (aDecoder.decodeObjectForKey("url") as? String!)!
-        self.latitude = aDecoder.decodeObjectForKey("latitude") as! Double!
-        self.longitude = aDecoder.decodeObjectForKey("longitude")as! Double!
     }
     
     

@@ -21,16 +21,8 @@ class mapViewController: UIViewController, UITextFieldDelegate {
     **/
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let center = CLLocationCoordinate2DMake(collegeRecieved.latitude, collegeRecieved.longitude)
-        let span = MKCoordinateSpanMake(0.01, 0.01)
-        let region = MKCoordinateRegionMake(center, span)
-        
-        let pin = MKPointAnnotation()
-        pin.coordinate = center
-        pin.title = collegeRecieved.name
-        mapViewObject.addAnnotation(pin)
-        mapViewObject.setRegion(region, animated: true)
+        inputTextField.text = "" + collegeRecieved.name + ", " + collegeRecieved.location
+        textFieldShouldReturn(inputTextField)
     }
     
     /**
@@ -77,10 +69,11 @@ class mapViewController: UIViewController, UITextFieldDelegate {
                 if(doAction){
                     let actionSheet = UIAlertController(title: "Select Location", message: "Please select your preferred location", preferredStyle: .ActionSheet)
                     for(var i = 0; i < toDisplay.count; i++){
+                        let placemark = placemarks![i] as CLPlacemark!
+                        let center = placemark.location.coordinate
+                        let span = MKCoordinateSpanMake(0.1, 0.1)
+                        
                         let leAction = UIAlertAction(title: placemarks![i].name + ", " + placemarks![i].administrativeArea , style: .Default){ (action) -> Void in
-                            let placemark = placemarks![i] as CLPlacemark!
-                            let center = placemark.location.coordinate
-                            let span = MKCoordinateSpanMake(0.1, 0.1)
                             self.displayMap(center, span: span, pinTitle: self.inputTextField.text!)
                         }
                         actionSheet.addAction(leAction)
