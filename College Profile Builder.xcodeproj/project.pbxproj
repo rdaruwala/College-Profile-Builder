@@ -17,6 +17,7 @@
 		C10A71E81B4AFD1300210856 /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A71E71B4AFD1300210856 /* College.swift */; };
 		C10A71EE1B4B013100210856 /* displayCollegeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A71ED1B4B013100210856 /* displayCollegeViewController.swift */; };
 		C12DFFF61B4C2BB700209735 /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12DFFF51B4C2BB700209735 /* webViewController.swift */; };
+		C1AF07C81B4D7EE500FF15C7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AF07C71B4D7EE500FF15C7 /* mapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C10A71E71B4AFD1300210856 /* College.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = College.swift; sourceTree = "<group>"; };
 		C10A71ED1B4B013100210856 /* displayCollegeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCollegeViewController.swift; sourceTree = "<group>"; };
 		C12DFFF51B4C2BB700209735 /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
+		C1AF07C71B4D7EE500FF15C7 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				C10A71BB1B4AF75700210856 /* ViewController.swift */,
 				C10A71ED1B4B013100210856 /* displayCollegeViewController.swift */,
 				C12DFFF51B4C2BB700209735 /* webViewController.swift */,
+				C1AF07C71B4D7EE500FF15C7 /* mapViewController.swift */,
 				C10A71BD1B4AF75700210856 /* Main.storyboard */,
 				C10A71C01B4AF75700210856 /* Assets.xcassets */,
 				C10A71C21B4AF75700210856 /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 				C12DFFF61B4C2BB700209735 /* webViewController.swift in Sources */,
 				C10A71BC1B4AF75700210856 /* ViewController.swift in Sources */,
 				C10A71EE1B4B013100210856 /* displayCollegeViewController.swift in Sources */,
+				C1AF07C81B4D7EE500FF15C7 /* mapViewController.swift in Sources */,
 				C10A71BA1B4AF75700210856 /* AppDelegate.swift in Sources */,
 				C10A71E81B4AFD1300210856 /* College.swift in Sources */,
 			);

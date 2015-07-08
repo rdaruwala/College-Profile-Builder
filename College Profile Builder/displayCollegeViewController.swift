@@ -22,6 +22,12 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     
     @IBOutlet weak var inputViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var latitudeTextField: UITextField!
+    
+    @IBOutlet weak var longitudeTextField: UITextField!
+    @IBOutlet weak var viewOnMapButton: UIButton!
+    
+    
     var collegeList:[String]!
     var colleges:[College]!
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -74,12 +80,18 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
         loadButton.layer.borderWidth = 3
         loadButton.layer.borderColor = UIColor.blueColor().CGColor
         
+        viewOnMapButton.backgroundColor = UIColor.clearColor()
+        viewOnMapButton.layer.cornerRadius = 10
+        viewOnMapButton.layer.borderWidth = 3
+        viewOnMapButton.layer.borderColor = UIColor.blueColor().CGColor
+        
         collegeNameTextField.text = collegeRecieved.name
         
         index = isItIn(collegeRecieved)
         
         if(index == -1){
             loadButton.hidden = true
+            viewOnMapButton.hidden = true
         }
         
         
@@ -129,8 +141,8 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
     If all the fields are filled, check to see if the college is already saved. If it is, then delete it. Then save, and display a notification.
     **/
     @IBAction func saveButtonAction(sender: AnyObject) {
-        if(collegeNameTextField.text != nil && collegeLocationTextField.text != nil && collegeEnrollmentTextField.text != nil && collegeNameTextField.text != "" && collegeLocationTextField.text != "" && collegeEnrollmentTextField.text != "" && collegeImage.image != nil && urlTextField.text != "" && urlTextField.text != nil){
-            let toSave:College = College(name: collegeNameTextField.text!, location: collegeLocationTextField.text!, enrollment: Int(collegeEnrollmentTextField.text!)!, image: collegeImage.image!, webURL: urlTextField.text!)
+        if(collegeNameTextField.text != nil && collegeLocationTextField.text != nil && collegeEnrollmentTextField.text != nil && collegeNameTextField.text != "" && collegeLocationTextField.text != "" && collegeEnrollmentTextField.text != "" && collegeImage.image != nil && urlTextField.text != "" && urlTextField.text != nil && latitudeTextField.text != "" && longitudeTextField.text != "" && latitudeTextField.text != nil && longitudeTextField.text != nil){
+            let toSave:College = College(name: collegeNameTextField.text!, location: collegeLocationTextField.text!, enrollment: Int(collegeEnrollmentTextField.text!)!, image: collegeImage.image!, webURL: urlTextField.text!, latitude: Double(latitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!)
             if (index != -1){
                 colleges.removeAtIndex(index)
             }
@@ -195,6 +207,8 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             collegeLocationTextField.text = colleges[index].location
             collegeEnrollmentTextField.text = String(colleges[index].enrollment)
             urlTextField.text = colleges[index].webURL
+            latitudeTextField.text = String(colleges[index].latitude)
+            longitudeTextField.text = String(colleges[index].longitude)
         }
     }
     /**
@@ -216,6 +230,11 @@ class displayCollegeViewController: UIViewController, UIImagePickerControllerDel
             let next = segue.destinationViewController as? UINavigationController
             let vc = next?.topViewController as? webViewController
             vc!.webURL = colleges[index].webURL
+        }
+        else if(segue.identifier == "mapViewSegue"){
+            let next = segue.destinationViewController as? UINavigationController
+            let vc = next?.topViewController as? mapViewController
+            vc!.collegeRecieved = colleges[index]
         }
     }
     
