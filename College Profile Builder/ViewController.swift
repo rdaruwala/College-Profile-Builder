@@ -74,6 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.reloadData()
         }
     }
+    
     /**
     Runs when the + button is tapped. Creates an alert to add a new college to the list
     **/
