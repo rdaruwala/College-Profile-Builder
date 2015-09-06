@@ -53,7 +53,7 @@ class mapViewController: UIViewController, UITextFieldDelegate {
                 var doAction = true
                 if(placemarks!.count == 1){
                     let placemark = placemarks!.first as CLPlacemark!
-                    let center = placemark.location.coordinate
+                    let center = placemark.location!.coordinate
                     let span = MKCoordinateSpanMake(0.1, 0.1)
                     doAction = false
                     self.displayMap(center, span: span, pinTitle: self.inputTextField.text!)
@@ -70,10 +70,10 @@ class mapViewController: UIViewController, UITextFieldDelegate {
                     let actionSheet = UIAlertController(title: "Select Location", message: "Please select your preferred location", preferredStyle: .ActionSheet)
                     for(var i = 0; i < toDisplay.count; i++){
                         let placemark = toDisplay[i] as CLPlacemark!
-                        let center = placemark.location.coordinate
+                        let center = placemark.location!.coordinate
                         let span = MKCoordinateSpanMake(0.1, 0.1)
                         
-                        let leAction = UIAlertAction(title: toDisplay[i].name + ", " + toDisplay[i].administrativeArea , style: .Default){ (action) -> Void in
+                        let leAction = UIAlertAction(title: toDisplay[i].name! + ", " + toDisplay[i].administrativeArea! , style: .Default){ (action) -> Void in
                             self.displayMap(center, span: span, pinTitle: self.inputTextField.text!)
                         }
                         actionSheet.addAction(leAction)
